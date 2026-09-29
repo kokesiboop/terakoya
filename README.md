@@ -2,7 +2,7 @@
 
 一問一答の演習アプリです。ブラウザで開くだけで使えます。
 
-**→ https://kokesiboop.github.io/terakoya/**
+**→ https://terakoyano-syukudai.github.io/**
 
 収録：微生物免疫学・病態学・環境衛生学1・薬理学・解剖学・薬物動態学の6科目、9164問。
 
@@ -35,7 +35,7 @@
 2. 右上の「Add file」→「Upload files」
 3. 新しい `index.html` をドラッグして置く（**ファイル名は必ず `index.html`**）
 4. 下の「Commit changes」を押す
-5. 1〜2分待つと https://kokesiboop.github.io/terakoya/ が新しい版になります
+5. 1〜2分待つと https://terakoyano-syukudai.github.io/ が新しい版になります
 
 利用者側は、ページを開き直すだけで新しい版になります。再配布は要りません。
 **記録は端末に残るので、更新しても消えません。**
@@ -45,7 +45,7 @@
 | ファイル | 役割 |
 |---|---|
 | `index.html` | アプリ本体。これ1つで完結しています |
-| `robots.txt` | 検索よけ（実際に効いているのは `index.html` 内の noindex タグの方です） |
+| `robots.txt` | クロールの指定。検索よけ本体は `index.html` 内の noindex タグです |
 | `.nojekyll` | GitHub 側の余計な変換を止めるための空ファイル。消さないでください |
 
 問題データやビルド用のスクリプトは、このリポジトリには置いていません。
