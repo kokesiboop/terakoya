@@ -11,13 +11,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow,noarchive">
 <meta name="googlebot" content="noindex,nofollow">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="てらこやの宿題">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="theme-color" content="#EDF1EF">
 <meta name="format-detection" content="telephone=no">
-<title>薬学てらこやの宿題 v6.1｜微生物免疫学・病態学・衛生・薬理学・解剖学・薬物動態学</title>
+<title>薬学てらこやの宿題 v6.2｜微生物免疫学・病態学・衛生・薬理学・解剖学・薬物動態学</title>
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   :root{
@@ -1082,7 +1085,7 @@ function Home(){
         storeMode==="claude" ? "記録：Claudeアプリに保存（別端末でも引き継がれます）"
         : storeMode==="local" ? "記録：この端末のブラウザに保存"
         : "記録：保存できない環境です。閉じると消えます"}</span>
-      <br><span class="mono" style="font-size:10.5px">アプリ版数：v6.1（2026-09-29 更新）</span>
+      <br><span class="mono" style="font-size:10.5px">アプリ版数：v6.2（2026-10-03 更新）</span>
       <br><span class="mono" style="font-size:10.5px">収録している全6科目の問題はすべて書き下ろしのオリジナルで、過去問・試験問題・市販教材の文章および図版の転載はありません。</span>
       <br><br><button class="danger" onclick="resetAll()">記録をすべて消す</button>
     </div>
@@ -1628,6 +1631,20 @@ async function resetAll(){
   render();
 })();
 window.addEventListener("pagehide", ()=>{ try{ saveProgress(true); }catch(e){} });
+</script>
+
+<script>
+/* ---------- オフライン対応（ホーム画面に追加して使う） ----------
+   https で開いたときだけ有効。ファイルを直接開いた場合は何もしない。 */
+(function(){
+  if(!("serviceWorker" in navigator)) return;
+  var ok = (location.protocol === "https:") ||
+           (location.hostname === "localhost") || (location.hostname === "127.0.0.1");
+  if(!ok) return;   // file:// で直接開いた場合は何もしない
+  window.addEventListener("load", function(){
+    navigator.serviceWorker.register("sw.js", { updateViaCache: "none" }).catch(function(){});
+  });
+})();
 </script>
 
 </html>
